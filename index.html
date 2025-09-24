@@ -1,50 +1,201 @@
-<form id="form-chamado">
-    <div class="form-grid">
-        <div class="form-group">
-            <label>Solicitante</label>
-            <input type="text" id="solicitante" required>
-        </div>
-        <div class="form-group">
-            <label>Atendente</label>
-            <select id="atendente" required>
-                <option value="">Selecione...</option>
-                <option value="Igor Leite">Igor Leite</option>
-                <option value="Leonardo">Leonardo</option>
-                <option value="Hans">Hans</option>
-                <option value="Kleber">Kleber</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label>Departamento</label>
-            <select id="departamento" required>
-                <option value="">Selecione o Tipo...</option>
-                <option value="Administrativo">Administrativo</option>
-                <option value="Vendas">Vendas</option>
-                <option value="Diretoria">Diretoria</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label>Tipo</label>
-            <select id="tipo" required>
-                <option value="">Selecione...</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label>Categoria</label>
-            <select id="categoria" required>
-                <option value="">Selecione...</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label>Subcategoria</label>
-            <select id="subcategoria" required>
-                <option value="">Selecione a Categoria...</option>
-            </select>
-        </div>
-    </div>
-    <div class="form-group">
-        <label>Descrição</label>
-        <textarea id="descricao" rows="4" required></textarea>
-    </div>
-    <button type="submit">Salvar Chamado</button>
-</form>
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ 
+
+  <title>chamados Mag</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Controle de Chamados - Mag Seguros</h1>
+
+     <!-- <img src="image/mag-image.png" alt=""> -->
+
+
+
+    <form id="form-chamado">
+
+      <div class="form-grid">
+
+        <div class="form-group">
+
+          <label>Solicitante</label>
+
+          <input type="text" id="solicitante" required>
+
+        </div>
+
+        <div class="form-group">
+
+          <label>Atendente</label>
+
+          <input type="text" id="atendente" required>
+
+        </div>
+
+        <div class="form-group">
+
+          <label>Departamento</label>
+
+          <select id="departamento" required>
+
+            <option value="">Selecione o Tipo...</option>
+
+            <option value="Administrativo">Administrativo</option>
+
+            <option value="Vendas">Vendas</option>
+
+            <option value="Diretoria">Diretoria</option>
+
+          </select>
+
+        </div>
+
+        <div class="form-group">
+
+          <label>Tipo</label>
+
+          <select id="tipo" required>
+
+            <option value="">Selecione...</option>
+
+           
+
+          </select>
+
+        </div>
+
+        <div class="form-group">
+
+          <label>Categoria</label>
+
+          <select id="categoria" required>
+
+            <option value="">Selecione...</option>
+
+            <option value="">Hardware</option>
+
+            <option value="">Software</option>
+
+          </select>
+
+        </div>
+
+        <div class="form-group">
+
+          <label>Subcategoria</label>
+
+          <select id="subcategoria" required>
+
+            <option value="">Selecione a Categoria...</option>
+
+            <option value="">teste</option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+      <div class="form-group">
+
+        <label>Descrição</label>
+
+        <textarea id="descricao" rows="4" required></textarea>
+
+      </div>
+
+      <button type="submit">Abrir Chamado</button>
+
+    </form>
+
+
+
+    <div class="relatorios-section">
+
+      <h2>Relatórios</h2>
+
+      <div class="filtros">
+
+        <label>Mês: <input type="number" id="mes" min="1" max="12"></label>
+
+        <label>Ano: <input type="number" id="ano"></label>
+
+        <button id="btn-buscar">Buscar</button>
+
+      </div>
+
+      <div class="export-buttons">
+
+        <button id="btn-export-csv-mensal">Exportar CSV (Mensal)</button>
+
+        <button id="btn-export-pdf-mensal">Exportar PDF (Mensal)</button>
+
+        <button id="btn-export-csv-semanal">Exportar CSV (Semanal)</button>
+
+        <button id="btn-export-pdf-semanal">Exportar PDF (Semanal)</button>
+
+      </div>
+
+      <div class="table-container">
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>Ticket</th>
+
+              <th>Data/Hora</th>
+
+              <th>Solicitante</th>
+
+              <th>Atendente</th>
+
+              <th>Departamento</th>
+
+              <th>Tipo</th>
+
+              <th>Categoria</th>
+
+              <th>Subcategoria</th>
+
+              <th>Descrição</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody id="corpo-tabela"></tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
